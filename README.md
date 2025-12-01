@@ -50,29 +50,56 @@ The game includes 25 carefully crafted questions across 5 categories:
 ### Opening the Game
 1. Simply open the `index.html` file in any modern web browser (Chrome, Firefox, Safari, Edge)
 2. No installation or internet connection required!
+3. A setup screen will appear - choose your game mode!
 
-### Playing the Game
-1. **Select a Question**: Click on any dollar amount ($100-$500) to reveal a question
-2. **Think About It**: Consider your answer before revealing the solution
-3. **Check Your Answer**: Click "Show Answer" to see the correct response
-4. **Track Your Score**:
-   - Click "Correct ✓" if you got it right to add points
-   - Click "Incorrect ✗" if you missed it to deduct points
-5. **Keep Playing**: Continue through all categories to maximize your score!
+### Game Modes
+
+#### 🎮 **Single Player Mode**
+Perfect for solo study sessions!
+1. Select "Single Player" from the setup screen
+2. Click "Start Game"
+3. Click on any dollar amount ($100-$500) to reveal a question
+4. Think about your answer, then click "Show Answer" to check
+5. Click "Correct ✓" or "Incorrect ✗" to track your score
+6. Try to achieve the highest score possible!
+
+#### 👥 **Team Play Mode**
+Great for studying with friends or classroom review!
+1. Select "Team Play" from the setup screen
+2. Choose the number of teams (2-6 teams)
+3. Enter custom names for each team (or use default names)
+4. Click "Start Game"
+5. When a question appears, select which team is answering
+6. The selected team's score will be highlighted
+7. Click "Show Answer" to reveal the correct response
+8. Click "Correct ✓" or "Incorrect ✗" to update that team's score
+9. The team with the highest score at the end wins!
+
+### Changing Game Settings
+- Click the "⚙️ Change Teams" button (appears in team mode) to reconfigure teams or switch to single player mode
+- You can reset the game at any time by refreshing the page
 
 ### Scoring System
 - Each question is worth its displayed dollar value ($100-$500)
-- Correct answers add points to your score
-- Incorrect answers deduct points from your score
-- Try to achieve the highest score possible (maximum: $12,500)
+- Correct answers add points to your score/team score
+- Incorrect answers deduct points from your score/team score
+- Maximum possible score: $12,500 (answer all questions correctly)
 
 ## 🎯 Study Tips
 
+### For Solo Study:
 - **Start with $100 questions**: These cover fundamental concepts and build your confidence
 - **Progress to harder questions**: $500 questions involve calculations and deeper understanding
 - **Review wrong answers**: Use the detailed explanations to learn from mistakes
 - **Play multiple times**: Repetition helps reinforce the concepts
 - **Try without looking**: Challenge yourself to answer before revealing the solution
+
+### For Team Play:
+- **Mix up teams**: Create balanced teams by mixing students with different skill levels
+- **Discuss answers**: After revealing the answer, discuss why it's correct as a group
+- **Friendly competition**: Use team mode to make studying more engaging and fun
+- **Take turns**: Have different team members answer questions to ensure everyone participates
+- **Learn from others**: When another team answers, pay attention to learn from their responses
 
 ## 📖 Key Formulas Reference
 
@@ -88,12 +115,14 @@ The game covers these essential formulas:
 
 ## 💡 Features
 
+- ✅ **Dual Game Modes**: Single player and team play (2-6 teams)
+- ✅ **Customizable Teams**: Name your teams and track individual scores
 - ✅ Authentic Jeopardy! styling with blue and gold color scheme
 - ✅ 25 unique physics questions with detailed answers
-- ✅ Interactive scoring system
+- ✅ Interactive scoring system with visual feedback
 - ✅ Responsive design works on desktop and mobile
 - ✅ No internet required after downloading
-- ✅ Visual feedback for answered questions
+- ✅ Visual feedback for answered questions and active teams
 - ✅ Clean, professional interface
 
 ## 🎓 Educational Value
