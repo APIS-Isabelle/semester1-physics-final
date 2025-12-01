@@ -483,6 +483,14 @@
         Score: $<span id="score">0</span>
     </div>
 
+    <div class="teams-score-board" id="teamsScoreBoard">
+        <div class="team-scores" id="teamScores"></div>
+    </div>
+
+    <div class="setup-controls" id="setupControls">
+        <button onclick="openSetup()">⚙️ Change Settings</button>
+    </div>
+
     <div class="game-board" id="gameBoard"></div>
 
     <div class="instructions">
@@ -596,8 +604,39 @@
                 </ul>
 
                 <div style="text-align: center; margin-top: 25px;">
-                    <button class="btn" onclick="startGame()">I'm Ready to Play! 🚀</button>
+                    <button class="btn" onclick="closeStudyGuide()">I'm Ready to Play! 🚀</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal setup-modal" id="setupModal">
+        <div class="modal-content">
+            <h2 style="color: #f4c430; margin-bottom: 20px;">Game Setup</h2>
+            <div class="setup-form">
+                <div class="form-group">
+                    <label for="gameMode">Select Game Mode:</label>
+                    <select id="gameMode" onchange="toggleTeamInputs()">
+                        <option value="solo">Single Player</option>
+                        <option value="teams">Team Play</option>
+                    </select>
+                </div>
+                <div class="team-inputs" id="teamInputs">
+                    <div class="form-group">
+                        <label for="numTeams">Number of Teams:</label>
+                        <select id="numTeams" onchange="generateTeamInputs()">
+                            <option value="2">2 Teams</option>
+                            <option value="3">3 Teams</option>
+                            <option value="4">4 Teams</option>
+                            <option value="5">5 Teams</option>
+                            <option value="6">6 Teams</option>
+                        </select>
+                    </div>
+                    <div id="teamNameInputs"></div>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn" onclick="startGame()">Start Game</button>
             </div>
         </div>
     </div>
@@ -606,6 +645,10 @@
         <div class="modal-content">
             <div class="question-value" id="questionValue"></div>
             <div class="question-text" id="questionText"></div>
+            <div class="team-selector" id="teamSelector">
+                <div class="team-selector-label">Which team is answering?</div>
+                <div class="team-buttons" id="teamButtons"></div>
+            </div>
             <div class="answer-text" id="answerText"></div>
             <div class="modal-buttons">
                 <button class="btn" id="showAnswerBtn" onclick="showAnswer()">Show Answer</button>
@@ -741,14 +784,89 @@
         let score = 0;
         let currentQuestion = null;
         let answeredQuestions = new Set();
+        let gameMode = 'solo';
+        let teams = [];
+        let selectedTeam = null;
+
+        function closeStudyGuide() {
+            document.getElementById('studyGuideModal').classList.remove('active');
+            document.getElementById('setupModal').classList.add('active');
+        }
+
+        function toggleTeamInputs() {
+            const mode = document.getElementById('gameMode').value;
+            const teamInputs = document.getElementById('teamInputs');
+
+            if (mode === 'teams') {
+                teamInputs.classList.add('show');
+                generateTeamInputs();
+            } else {
+                teamInputs.classList.remove('show');
+            }
+        }
+
+        function generateTeamInputs() {
+            const numTeams = parseInt(document.getElementById('numTeams').value);
+            const container = document.getElementById('teamNameInputs');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= numTeams; i++) {
+                const div = document.createElement('div');
+                div.className = 'team-input-group';
+                div.innerHTML = `
+                    <label for="team${i}">Team ${i} Name:</label>
+                    <input type="text" id="team${i}" value="Team ${i}" placeholder="Enter team name">
+                `;
+                container.appendChild(div);
+            }
+        }
+
+        function openSetup() {
+            document.getElementById('setupModal').classList.add('active');
+        }
 
         function startGame() {
-            // Close study guide
-            document.getElementById('studyGuideModal').classList.remove('active');
-            // Show score board
-            document.getElementById('scoreBoard').style.display = 'block';
-            // Initialize game
+            gameMode = document.getElementById('gameMode').value;
+
+            if (gameMode === 'teams') {
+                const numTeams = parseInt(document.getElementById('numTeams').value);
+                teams = [];
+
+                for (let i = 1; i <= numTeams; i++) {
+                    const name = document.getElementById(`team${i}`).value || `Team ${i}`;
+                    teams.push({ name: name, score: 0 });
+                }
+
+                document.getElementById('scoreBoard').style.display = 'none';
+                document.getElementById('teamsScoreBoard').style.display = 'block';
+                document.getElementById('setupControls').style.display = 'block';
+
+                updateTeamScores();
+            } else {
+                teams = [];
+                document.getElementById('scoreBoard').style.display = 'block';
+                document.getElementById('teamsScoreBoard').style.display = 'none';
+                document.getElementById('setupControls').style.display = 'none';
+            }
+
+            document.getElementById('setupModal').classList.remove('active');
             initGame();
+        }
+
+        function updateTeamScores() {
+            const container = document.getElementById('teamScores');
+            container.innerHTML = '';
+
+            teams.forEach((team, index) => {
+                const div = document.createElement('div');
+                div.className = 'team-score';
+                div.id = `team-score-${index}`;
+                div.innerHTML = `
+                    <div class="team-name">${team.name}</div>
+                    <div class="team-score-value">$${team.score}</div>
+                `;
+                container.appendChild(div);
+            });
         }
 
         function initGame() {
@@ -790,6 +908,8 @@
                 cell: cell
             };
 
+            selectedTeam = null;
+
             const questionData = questions[category][value];
             document.getElementById('questionValue').textContent = '$' + value;
             document.getElementById('questionText').textContent = questionData.question;
@@ -800,10 +920,57 @@
             document.getElementById('correctBtn').style.display = 'none';
             document.getElementById('incorrectBtn').style.display = 'none';
 
+            if (gameMode === 'teams') {
+                setupTeamSelector();
+                document.getElementById('teamSelector').style.display = 'block';
+            } else {
+                document.getElementById('teamSelector').style.display = 'none';
+            }
+
             document.getElementById('modal').classList.add('active');
         }
 
+        function setupTeamSelector() {
+            const container = document.getElementById('teamButtons');
+            container.innerHTML = '';
+
+            teams.forEach((team, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'team-btn';
+                btn.textContent = team.name;
+                btn.onclick = () => selectTeam(index, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectTeam(index, btn) {
+            selectedTeam = index;
+
+            document.querySelectorAll('.team-btn').forEach(b => {
+                b.classList.remove('selected');
+            });
+
+            btn.classList.add('selected');
+
+            teams.forEach((_, i) => {
+                const scoreEl = document.getElementById(`team-score-${i}`);
+                if (scoreEl) {
+                    scoreEl.classList.remove('active-team');
+                }
+            });
+
+            const scoreEl = document.getElementById(`team-score-${index}`);
+            if (scoreEl) {
+                scoreEl.classList.add('active-team');
+            }
+        }
+
         function showAnswer() {
+            if (gameMode === 'teams' && selectedTeam === null) {
+                alert('Please select a team first!');
+                return;
+            }
+
             document.getElementById('answerText').classList.add('show');
             document.getElementById('showAnswerBtn').style.display = 'none';
             document.getElementById('correctBtn').style.display = 'inline-block';
@@ -811,15 +978,33 @@
         }
 
         function markCorrect() {
-            score += currentQuestion.value;
-            updateScore();
+            if (gameMode === 'teams') {
+                if (selectedTeam === null) {
+                    alert('Please select a team first!');
+                    return;
+                }
+                teams[selectedTeam].score += currentQuestion.value;
+                updateTeamScores();
+            } else {
+                score += currentQuestion.value;
+                updateScore();
+            }
             markAsAnswered();
             closeModal();
         }
 
         function markIncorrect() {
-            score -= currentQuestion.value;
-            updateScore();
+            if (gameMode === 'teams') {
+                if (selectedTeam === null) {
+                    alert('Please select a team first!');
+                    return;
+                }
+                teams[selectedTeam].score -= currentQuestion.value;
+                updateTeamScores();
+            } else {
+                score -= currentQuestion.value;
+                updateScore();
+            }
             markAsAnswered();
             closeModal();
         }
@@ -837,6 +1022,15 @@
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
             currentQuestion = null;
+            selectedTeam = null;
+
+            // Clear team highlighting
+            teams.forEach((_, i) => {
+                const scoreEl = document.getElementById(`team-score-${i}`);
+                if (scoreEl) {
+                    scoreEl.classList.remove('active-team');
+                }
+            });
         }
 
         // Close modal when clicking outside
