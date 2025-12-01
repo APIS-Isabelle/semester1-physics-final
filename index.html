@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Jeopardy - Work, Power & Energy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0c1445 0%, #1a2980 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            color: #f4c430;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .score-board {
+            background: #f4c430;
+            color: #0c1445;
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            max-width: 1200px;
+            width: 100%;
+            background: #000;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .category {
+            background: #060CE9;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #000;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cell {
+            background: #060CE9;
+            color: #f4c430;
+            padding: 40px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cell:hover:not(.answered) {
+            background: #0808c4;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(244, 196, 48, 0.5);
+        }
+
+        .cell.answered {
+            background: #030347;
+            color: #555;
+            cursor: not-allowed;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #060CE9;
+            color: #f4c430;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 3px solid #f4c430;
+        }
+
+        .question-value {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .question-text {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            line-height: 1.4;
+            color: #fff;
+        }
+
+        .answer-text {
+            font-size: 1.5rem;
+            color: #f4c430;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            display: none;
+        }
+
+        .answer-text.show {
+            display: block;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            background: #f4c430;
+            color: #060CE9;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ffd700;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .instructions h3 {
+            color: #f4c430;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .game-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cell {
+                padding: 20px;
+                font-size: 1.5rem;
+            }
+
+            .question-text {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">JEOPARDY!</div>
+        <div class="subtitle">Work, Power & Energy Review</div>
+    </div>
+
+    <div class="score-board">
+        Score: $<span id="score">0</span>
+    </div>
+
+    <div class="game-board" id="gameBoard"></div>
+
+    <div class="instructions">
+        <h3>How to Play:</h3>
+        <p>1. Click on any dollar amount to reveal a question</p>
+        <p>2. Think about your answer, then click "Show Answer" to check</p>
+        <p>3. Click "Correct" to add points or "Incorrect" to deduct points</p>
+        <p>4. Try to answer all questions and maximize your score!</p>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="question-value" id="questionValue"></div>
+            <div class="question-text" id="questionText"></div>
+            <div class="answer-text" id="answerText"></div>
+            <div class="modal-buttons">
+                <button class="btn" id="showAnswerBtn" onclick="showAnswer()">Show Answer</button>
+                <button class="btn" id="correctBtn" onclick="markCorrect()" style="display: none;">Correct ✓</button>
+                <button class="btn btn-secondary" id="incorrectBtn" onclick="markIncorrect()" style="display: none;">Incorrect ✗</button>
+                <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const categories = [
+            "Work Basics",
+            "Power",
+            "Kinetic Energy",
+            "Potential Energy",
+            "Conservation of Energy"
+        ];
+
+        const questions = {
+            "Work Basics": {
+                100: {
+                    question: "What is the formula for work?",
+                    answer: "W = F × d × cos(θ) or W = F·d (when force and displacement are in the same direction)"
+                },
+                200: {
+                    question: "What is the SI unit of work?",
+                    answer: "Joule (J) or Newton-meter (N·m)"
+                },
+                300: {
+                    question: "If you push a box with 50 N of force for 10 meters in the direction of the force, how much work is done?",
+                    answer: "W = F × d = 50 N × 10 m = 500 J"
+                },
+                400: {
+                    question: "True or False: If you carry a box horizontally, you do work on the box. Explain why or why not.",
+                    answer: "False. No work is done because the force (upward) is perpendicular to the displacement (horizontal). Work requires force in the direction of motion."
+                },
+                500: {
+                    question: "A force of 100 N is applied at a 60° angle to move an object 5 meters. Calculate the work done.",
+                    answer: "W = F × d × cos(θ) = 100 N × 5 m × cos(60°) = 100 × 5 × 0.5 = 250 J"
+                }
+            },
+            "Power": {
+                100: {
+                    question: "What is the definition of power?",
+                    answer: "Power is the rate at which work is done or energy is transferred. P = W/t or P = E/t"
+                },
+                200: {
+                    question: "What is the SI unit of power?",
+                    answer: "Watt (W) or Joule per second (J/s)"
+                },
+                300: {
+                    question: "If 1500 J of work is done in 5 seconds, what is the power?",
+                    answer: "P = W/t = 1500 J / 5 s = 300 W"
+                },
+                400: {
+                    question: "A 60 kg student runs up stairs with a vertical height of 4 m in 3 seconds. What is their power output? (g = 10 m/s²)",
+                    answer: "W = mgh = 60 kg × 10 m/s² × 4 m = 2400 J; P = W/t = 2400 J / 3 s = 800 W"
+                },
+                500: {
+                    question: "What is the alternative formula for power in terms of force and velocity?",
+                    answer: "P = F × v (Power equals force times velocity when force and velocity are in the same direction)"
+                }
+            },
+            "Kinetic Energy": {
+                100: {
+                    question: "What is the formula for kinetic energy?",
+                    answer: "KE = ½mv² (one-half mass times velocity squared)"
+                },
+                200: {
+                    question: "A 2 kg ball is moving at 5 m/s. What is its kinetic energy?",
+                    answer: "KE = ½mv² = ½(2 kg)(5 m/s)² = ½(2)(25) = 25 J"
+                },
+                300: {
+                    question: "If you double the velocity of an object, by what factor does its kinetic energy increase?",
+                    answer: "Kinetic energy increases by a factor of 4 (since KE is proportional to v², doubling v means KE becomes 2² = 4 times larger)"
+                },
+                400: {
+                    question: "A 1000 kg car increases its speed from 10 m/s to 20 m/s. What is the change in kinetic energy?",
+                    answer: "KE₁ = ½(1000)(10)² = 50,000 J; KE₂ = ½(1000)(20)² = 200,000 J; ΔKE = 200,000 - 50,000 = 150,000 J or 150 kJ"
+                },
+                500: {
+                    question: "State the Work-Energy Theorem and explain what it means.",
+                    answer: "The Work-Energy Theorem states that the net work done on an object equals its change in kinetic energy: W_net = ΔKE. This means all forces doing work on an object will change its kinetic energy."
+                }
+            },
+            "Potential Energy": {
+                100: {
+                    question: "What is the formula for gravitational potential energy?",
+                    answer: "PE = mgh (mass times gravitational acceleration times height)"
+                },
+                200: {
+                    question: "A 5 kg book is lifted 2 meters above the ground. What is its gravitational potential energy? (Use g = 10 m/s²)",
+                    answer: "PE = mgh = 5 kg × 10 m/s² × 2 m = 100 J"
+                },
+                300: {
+                    question: "What is the reference point for gravitational potential energy, and why can it be chosen arbitrarily?",
+                    answer: "The reference point (h = 0) can be chosen anywhere because only changes in potential energy matter in physics problems. We typically choose ground level or the lowest point in the problem."
+                },
+                400: {
+                    question: "A 10 kg object falls from a height of 20 m. What is its potential energy at the top and bottom? (g = 10 m/s²)",
+                    answer: "At top: PE = mgh = 10 kg × 10 m/s² × 20 m = 2000 J; At bottom (h = 0): PE = 0 J"
+                },
+                500: {
+                    question: "What is elastic potential energy, and what is its formula for a spring?",
+                    answer: "Elastic potential energy is energy stored in stretched or compressed springs. Formula: PE_elastic = ½kx² where k is the spring constant and x is the displacement from equilibrium."
+                }
+            },
+            "Conservation of Energy": {
+                100: {
+                    question: "State the Law of Conservation of Energy.",
+                    answer: "Energy cannot be created or destroyed, only transformed from one form to another. The total energy in a closed system remains constant."
+                },
+                200: {
+                    question: "In a system with no friction, what happens to potential energy as an object falls?",
+                    answer: "Potential energy is converted into kinetic energy. As PE decreases, KE increases by the same amount, keeping total mechanical energy constant."
+                },
+                300: {
+                    question: "A 2 kg ball is dropped from a height of 5 m. What is its velocity just before hitting the ground? (Use g = 10 m/s² and ignore air resistance)",
+                    answer: "PE_initial = KE_final; mgh = ½mv²; gh = ½v²; v = √(2gh) = √(2 × 10 × 5) = √100 = 10 m/s"
+                },
+                400: {
+                    question: "A pendulum swings from its highest point (3 m above lowest point) where it has zero velocity. What is its velocity at the lowest point? (g = 10 m/s²)",
+                    answer: "Using conservation of energy: PE_top = KE_bottom; mgh = ½mv²; v = √(2gh) = √(2 × 10 × 3) = √60 ≈ 7.75 m/s"
+                },
+                500: {
+                    question: "A roller coaster car with mass 500 kg starts from rest at height 40 m. At height 10 m, what is its velocity? (g = 10 m/s², ignore friction)",
+                    answer: "E_initial = E_final; PE₁ = PE₂ + KE₂; mgh₁ = mgh₂ + ½mv²; v = √(2g(h₁-h₂)) = √(2 × 10 × 30) = √600 ≈ 24.5 m/s"
+                }
+            }
+        };
+
+        let score = 0;
+        let currentQuestion = null;
+        let answeredQuestions = new Set();
+
+        function initGame() {
+            const gameBoard = document.getElementById('gameBoard');
+
+            // Create category headers
+            categories.forEach(category => {
+                const categoryCell = document.createElement('div');
+                categoryCell.className = 'category';
+                categoryCell.textContent = category;
+                gameBoard.appendChild(categoryCell);
+            });
+
+            // Create question cells
+            const values = [100, 200, 300, 400, 500];
+            values.forEach(value => {
+                categories.forEach(category => {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.textContent = '$' + value;
+                    cell.dataset.category = category;
+                    cell.dataset.value = value;
+                    cell.onclick = () => openQuestion(category, value, cell);
+                    gameBoard.appendChild(cell);
+                });
+            });
+        }
+
+        function openQuestion(category, value, cell) {
+            if (answeredQuestions.has(`${category}-${value}`)) {
+                return;
+            }
+
+            currentQuestion = {
+                category: category,
+                value: value,
+                cell: cell
+            };
+
+            const questionData = questions[category][value];
+            document.getElementById('questionValue').textContent = '$' + value;
+            document.getElementById('questionText').textContent = questionData.question;
+            document.getElementById('answerText').textContent = questionData.answer;
+            document.getElementById('answerText').classList.remove('show');
+
+            document.getElementById('showAnswerBtn').style.display = 'inline-block';
+            document.getElementById('correctBtn').style.display = 'none';
+            document.getElementById('incorrectBtn').style.display = 'none';
+
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function showAnswer() {
+            document.getElementById('answerText').classList.add('show');
+            document.getElementById('showAnswerBtn').style.display = 'none';
+            document.getElementById('correctBtn').style.display = 'inline-block';
+            document.getElementById('incorrectBtn').style.display = 'inline-block';
+        }
+
+        function markCorrect() {
+            score += currentQuestion.value;
+            updateScore();
+            markAsAnswered();
+            closeModal();
+        }
+
+        function markIncorrect() {
+            score -= currentQuestion.value;
+            updateScore();
+            markAsAnswered();
+            closeModal();
+        }
+
+        function markAsAnswered() {
+            const key = `${currentQuestion.category}-${currentQuestion.value}`;
+            answeredQuestions.add(key);
+            currentQuestion.cell.classList.add('answered');
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            currentQuestion = null;
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        // Initialize game when page loads
+        initGame();
+    </script>
+</body>
+</html>
