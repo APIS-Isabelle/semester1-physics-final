@@ -488,25 +488,25 @@
     </div>
 
     <div class="setup-controls" id="setupControls">
-        <button onclick="openSetup()">⚙️ Change Settings</button>
+        <button onclick="openSetup()">Change Settings</button>
     </div>
 
     <div class="game-board" id="gameBoard"></div>
 
     <div class="instructions">
-        <h3>How to Play:</h3>
-        <p>1. Click on any dollar amount to reveal a question<br>
-        2. Think about your answer, then click "Show Answer" to check<br>
+        <h3>How to Play</h3>
+        <p>1. Select a dollar amount to reveal a question<br>
+        2. Formulate your answer, then click "Show Answer"<br>
         3. Click "Correct" to add points or "Incorrect" to deduct points<br>
-        4. Try to answer all questions and maximize your score!</p>
+        4. Answer all questions to complete the game</p>
     </div>
 
     <div class="modal study-guide-modal" id="studyGuideModal">
         <div class="modal-content">
             <div class="study-guide-content">
-                <h2>📚 Work, Power & Energy Study Guide</h2>
+                <h2>Work, Power & Energy Study Guide</h2>
 
-                <p style="text-align: center; color: #ffd700; margin-bottom: 20px;">Review these concepts before playing!</p>
+                <p style="text-align: center; color: #ffd700; margin-bottom: 20px;">Review these concepts before playing</p>
 
                 <h3>1. Work</h3>
                 <div class="formula-box">
@@ -595,16 +595,16 @@
 
                 <h3>Key Problem-Solving Tips</h3>
                 <ul>
-                    <li>✓ Always identify known and unknown values first</li>
-                    <li>✓ Choose appropriate formula based on what's given</li>
-                    <li>✓ Check units: convert if necessary (kg, m, s, J)</li>
-                    <li>✓ For energy conservation: E<sub>initial</sub> = E<sub>final</sub></li>
-                    <li>✓ Draw diagrams to visualize the problem</li>
-                    <li>✓ Remember: cos(0°) = 1, cos(90°) = 0, cos(60°) = 0.5</li>
+                    <li>Always identify known and unknown values first</li>
+                    <li>Choose appropriate formula based on what's given</li>
+                    <li>Check units: convert if necessary (kg, m, s, J)</li>
+                    <li>For energy conservation: E<sub>initial</sub> = E<sub>final</sub></li>
+                    <li>Draw diagrams to visualize the problem</li>
+                    <li>Remember: cos(0°) = 1, cos(90°) = 0, cos(60°) = 0.5</li>
                 </ul>
 
                 <div style="text-align: center; margin-top: 25px;">
-                    <button class="btn" onclick="closeStudyGuide()">I'm Ready to Play! 🚀</button>
+                    <button class="btn" onclick="closeStudyGuide()">Continue to Game Setup</button>
                 </div>
             </div>
         </div>
@@ -652,8 +652,8 @@
             <div class="answer-text" id="answerText"></div>
             <div class="modal-buttons">
                 <button class="btn" id="showAnswerBtn" onclick="showAnswer()">Show Answer</button>
-                <button class="btn" id="correctBtn" onclick="markCorrect()" style="display: none;">Correct ✓</button>
-                <button class="btn btn-secondary" id="incorrectBtn" onclick="markIncorrect()" style="display: none;">Incorrect ✗</button>
+                <button class="btn" id="correctBtn" onclick="markCorrect()" style="display: none;">Correct</button>
+                <button class="btn btn-secondary" id="incorrectBtn" onclick="markIncorrect()" style="display: none;">Incorrect</button>
                 <button class="btn btn-secondary" onclick="closeModal()">Close</button>
             </div>
         </div>

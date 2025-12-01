@@ -2,11 +2,11 @@
 
 A comprehensive, interactive Jeopardy-style game designed to help students review key concepts in Work, Power, and Energy for their Semester 1 Physics final exam.
 
-## 🎮 About This Project
+## About This Project
 
 This is an original, interactive review game created for Unit 4: Work, Power & Energy. The game format is inspired by the classic Jeopardy! game show, featuring authentic styling and engaging gameplay that makes studying physics fun and effective.
 
-## 📚 Topics Covered
+## Topics Covered
 
 The game includes 25 carefully crafted questions across 5 categories:
 
@@ -45,7 +45,7 @@ The game includes 25 carefully crafted questions across 5 categories:
 - Pendulums and roller coasters
 - Converting between PE and KE
 
-## 🚀 How to Use
+## How to Use
 
 ### Opening the Game
 1. Simply open the `index.html` file in any modern web browser (Chrome, Firefox, Safari, Edge)
@@ -56,16 +56,16 @@ The game includes 25 carefully crafted questions across 5 categories:
 
 ### Game Modes
 
-#### 🎮 **Single Player Mode**
+#### Single Player Mode
 Perfect for solo study sessions!
 1. Select "Single Player" from the setup screen
 2. Click "Start Game"
 3. Click on any dollar amount ($100-$500) to reveal a question
 4. Think about your answer, then click "Show Answer" to check
-5. Click "Correct ✓" or "Incorrect ✗" to track your score
+5. Click "Correct" or "Incorrect" to track your score
 6. Try to achieve the highest score possible!
 
-#### 👥 **Team Play Mode**
+#### Team Play Mode
 Great for studying with friends or classroom review!
 1. Select "Team Play" from the setup screen
 2. Choose the number of teams (2-6 teams)
@@ -74,11 +74,11 @@ Great for studying with friends or classroom review!
 5. When a question appears, select which team is answering
 6. The selected team's score will be highlighted
 7. Click "Show Answer" to reveal the correct response
-8. Click "Correct ✓" or "Incorrect ✗" to update that team's score
+8. Click "Correct" or "Incorrect" to update that team's score
 9. The team with the highest score at the end wins!
 
 ### Changing Game Settings
-- Click the "⚙️ Change Teams" button (appears in team mode) to reconfigure teams or switch to single player mode
+- Click the "Change Settings" button (appears in team mode) to reconfigure teams or switch to single player mode
 - You can reset the game at any time by refreshing the page
 
 ### Scoring System
@@ -87,7 +87,7 @@ Great for studying with friends or classroom review!
 - Incorrect answers deduct points from your score/team score
 - Maximum possible score: $12,500 (answer all questions correctly)
 
-## 🎯 Study Tips
+## Study Tips
 
 ### For Solo Study:
 - **Start with $100 questions**: These cover fundamental concepts and build your confidence
@@ -103,7 +103,7 @@ Great for studying with friends or classroom review!
 - **Take turns**: Have different team members answer questions to ensure everyone participates
 - **Learn from others**: When another team answers, pay attention to learn from their responses
 
-## 📖 Key Formulas Reference
+## Key Formulas Reference
 
 The game covers these essential formulas:
 
@@ -115,21 +115,21 @@ The game covers these essential formulas:
 - **Conservation of Energy**: E_initial = E_final
 - **Work-Energy Theorem**: W_net = ΔKE
 
-## 💡 Features
+## Features
 
-- ✅ **Comprehensive Study Guide**: Built-in reference with all formulas, definitions, and concepts
-- ✅ **Proper Math Notation**: Uses × for multiplication, ÷ for division (no confusing slashes!)
-- ✅ **Dual Game Modes**: Single player and team play (2-6 teams)
-- ✅ **Customizable Teams**: Name your teams and track individual scores
-- ✅ Authentic Jeopardy! styling with blue and gold color scheme
-- ✅ 25 unique physics questions with detailed step-by-step answers
-- ✅ Interactive scoring system with visual feedback
-- ✅ Responsive design works on desktop and mobile
-- ✅ No internet required after downloading
-- ✅ Visual feedback for answered questions and active teams
-- ✅ Clean, professional interface
+- **Comprehensive Study Guide**: Built-in reference with all formulas, definitions, and concepts
+- **Proper Math Notation**: Uses × for multiplication, ÷ for division (no confusing slashes)
+- **Dual Game Modes**: Single player and team play (2-6 teams)
+- **Customizable Teams**: Name your teams and track individual scores
+- Authentic Jeopardy styling with blue and gold color scheme
+- 25 unique physics questions with detailed step-by-step answers
+- Interactive scoring system with visual feedback
+- Responsive design works on desktop and mobile
+- No internet required after downloading
+- Visual feedback for answered questions and active teams
+- Clean, professional interface
 
-## 🎓 Educational Value
+## Educational Value
 
 This review guide helps students:
 - **Understand** core concepts through varied question types
@@ -138,23 +138,23 @@ This review guide helps students:
 - **Review** comprehensively across all topics in Unit 4
 - **Prepare** effectively for the semester final exam
 
-## 📱 Compatibility
+## Compatibility
 
-- ✅ Chrome / Edge / Brave
-- ✅ Firefox
-- ✅ Safari
-- ✅ Mobile browsers (iOS & Android)
+- Chrome / Edge / Brave
+- Firefox
+- Safari
+- Mobile browsers (iOS & Android)
 
-## 🏆 Challenge Yourself
+## Challenge Yourself
 
 **Score Ratings:**
-- $12,500: Perfect! Physics Master! 🏆
-- $10,000+: Excellent! Well prepared! ⭐
-- $7,500+: Good job! Keep studying! 👍
-- $5,000+: Getting there! Review tough topics! 📚
-- Below $5,000: Keep practicing! You've got this! 💪
+- $12,500: Perfect Score - Physics Master
+- $10,000+: Excellent - Well Prepared
+- $7,500+: Good - Keep Studying
+- $5,000+: Fair - Review Key Topics
+- Below $5,000: Needs Improvement - More Practice Required
 
-## 📝 Project Information
+## Project Information
 
 - **Format**: Interactive Web-based Game
 - **Subject**: Physics - Unit 4: Work, Power & Energy
@@ -162,10 +162,10 @@ This review guide helps students:
 - **Type**: Original Work - Review Guide
 - **Technologies**: HTML5, CSS3, JavaScript (Vanilla)
 
-## 🎨 Design Credits
+## Design Credits
 
 The visual design is inspired by the Jeopardy! game show with custom physics content created specifically for this educational purpose.
 
 ---
 
-**Good luck with your physics final! 🚀📐⚡**
+**Good luck with your physics final.**
