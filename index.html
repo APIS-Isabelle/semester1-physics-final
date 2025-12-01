@@ -300,6 +300,65 @@
             max-width: 600px;
         }
 
+        .study-guide-modal .modal-content {
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .study-guide-content {
+            color: #fff;
+        }
+
+        .study-guide-content h2 {
+            color: #f4c430;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .study-guide-content h3 {
+            color: #f4c430;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #f4c430;
+            padding-bottom: 5px;
+        }
+
+        .study-guide-content h4 {
+            color: #ffd700;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .study-guide-content p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .study-guide-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .study-guide-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .formula-box {
+            background: rgba(244, 196, 48, 0.15);
+            border: 2px solid #f4c430;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .formula-box strong {
+            color: #f4c430;
+            font-size: 1.1rem;
+        }
+
         .setup-form {
             margin: 20px 0;
         }
@@ -447,6 +506,115 @@
         5. The team with the highest score wins!</p>
     </div>
 
+    <div class="modal study-guide-modal" id="studyGuideModal">
+        <div class="modal-content">
+            <div class="study-guide-content">
+                <h2>📚 Work, Power & Energy Study Guide</h2>
+
+                <p style="text-align: center; color: #ffd700; margin-bottom: 20px;">Review these concepts before playing!</p>
+
+                <h3>1. Work</h3>
+                <div class="formula-box">
+                    <strong>Work Formula:</strong> W = F × d × cos(θ)<br>
+                    <strong>Simpler form:</strong> W = F × d (when force and displacement are in same direction)
+                </div>
+                <p><strong>Definition:</strong> Work is the energy transferred when a force moves an object through a distance.</p>
+                <ul>
+                    <li><strong>Unit:</strong> Joule (J) = Newton-meter (N·m)</li>
+                    <li><strong>F</strong> = Force applied (in Newtons)</li>
+                    <li><strong>d</strong> = Displacement (in meters)</li>
+                    <li><strong>θ</strong> = Angle between force and displacement</li>
+                    <li>Work is ONLY done when force causes displacement in its direction</li>
+                    <li>If force is perpendicular to motion, NO work is done (cos(90°) = 0)</li>
+                </ul>
+
+                <h3>2. Power</h3>
+                <div class="formula-box">
+                    <strong>Power Formula:</strong> P = W ÷ t<br>
+                    <strong>Alternative:</strong> P = F × v (when force and velocity are in same direction)
+                </div>
+                <p><strong>Definition:</strong> Power is the rate at which work is done or energy is transferred.</p>
+                <ul>
+                    <li><strong>Unit:</strong> Watt (W) = Joule per second (J/s)</li>
+                    <li><strong>W</strong> = Work done (in Joules)</li>
+                    <li><strong>t</strong> = Time (in seconds)</li>
+                    <li><strong>v</strong> = Velocity (in m/s)</li>
+                    <li>More power = work done faster</li>
+                </ul>
+
+                <h3>3. Kinetic Energy</h3>
+                <div class="formula-box">
+                    <strong>Kinetic Energy Formula:</strong> KE = ½ × m × v²
+                </div>
+                <p><strong>Definition:</strong> Energy of motion. An object in motion has kinetic energy.</p>
+                <ul>
+                    <li><strong>Unit:</strong> Joule (J)</li>
+                    <li><strong>m</strong> = Mass (in kilograms)</li>
+                    <li><strong>v</strong> = Velocity (in m/s)</li>
+                    <li>KE is proportional to v² → doubling speed quadruples KE!</li>
+                </ul>
+
+                <h4>Work-Energy Theorem</h4>
+                <div class="formula-box">
+                    <strong>W<sub>net</sub> = ΔKE = KE<sub>final</sub> − KE<sub>initial</sub></strong>
+                </div>
+                <p>The net work done on an object equals its change in kinetic energy.</p>
+
+                <h3>4. Potential Energy</h3>
+
+                <h4>Gravitational Potential Energy</h4>
+                <div class="formula-box">
+                    <strong>PE = m × g × h</strong>
+                </div>
+                <p><strong>Definition:</strong> Energy stored due to an object's position above a reference point.</p>
+                <ul>
+                    <li><strong>m</strong> = Mass (in kilograms)</li>
+                    <li><strong>g</strong> = Gravitational acceleration (≈ 10 m/s² or 9.8 m/s²)</li>
+                    <li><strong>h</strong> = Height above reference point (in meters)</li>
+                    <li>Reference point (h = 0) can be chosen anywhere</li>
+                    <li>Only changes in PE matter, not absolute values</li>
+                </ul>
+
+                <h4>Elastic Potential Energy (Springs)</h4>
+                <div class="formula-box">
+                    <strong>PE<sub>elastic</sub> = ½ × k × x²</strong>
+                </div>
+                <ul>
+                    <li><strong>k</strong> = Spring constant (in N/m)</li>
+                    <li><strong>x</strong> = Displacement from equilibrium (in meters)</li>
+                    <li>Energy stored in stretched or compressed springs</li>
+                </ul>
+
+                <h3>5. Conservation of Energy</h3>
+                <div class="formula-box">
+                    <strong>E<sub>initial</sub> = E<sub>final</sub></strong><br>
+                    <strong>PE<sub>initial</sub> + KE<sub>initial</sub> = PE<sub>final</sub> + KE<sub>final</sub></strong>
+                </div>
+                <p><strong>Law:</strong> Energy cannot be created or destroyed, only transformed from one form to another.</p>
+                <ul>
+                    <li>In a closed system with no friction, total mechanical energy stays constant</li>
+                    <li>As object falls: PE decreases, KE increases (PE → KE)</li>
+                    <li>As object rises: KE decreases, PE increases (KE → PE)</li>
+                    <li>Used to solve problems with pendulums, roller coasters, falling objects</li>
+                </ul>
+
+                <h3>Key Problem-Solving Tips</h3>
+                <ul>
+                    <li>✓ Always identify known and unknown values first</li>
+                    <li>✓ Choose appropriate formula based on what's given</li>
+                    <li>✓ Check units: convert if necessary (kg, m, s, J)</li>
+                    <li>✓ For energy conservation: E<sub>initial</sub> = E<sub>final</sub></li>
+                    <li>✓ Draw diagrams to visualize the problem</li>
+                    <li>✓ Remember: cos(0°) = 1, cos(90°) = 0, cos(60°) = 0.5</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 25px;">
+                    <button class="btn" onclick="closeStudyGuide()">I'm Ready to Play! 🚀</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal setup-modal" id="setupModal">
         <div class="modal-content">
             <h2 style="color: #f4c430; margin-bottom: 20px;">Game Setup</h2>
@@ -509,11 +677,11 @@
             "Work Basics": {
                 100: {
                     question: "What is the formula for work?",
-                    answer: "W = F × d × cos(θ) or W = F·d (when force and displacement are in the same direction)"
+                    answer: "W = F × d × cos(θ)   OR   W = F × d (when force and displacement are in the same direction)"
                 },
                 200: {
                     question: "What is the SI unit of work?",
-                    answer: "Joule (J) or Newton-meter (N·m)"
+                    answer: "Joule (J) = Newton-meter (N·m)"
                 },
                 300: {
                     question: "If you push a box with 50 N of force for 10 meters in the direction of the force, how much work is done?",
@@ -521,7 +689,7 @@
                 },
                 400: {
                     question: "True or False: If you carry a box horizontally, you do work on the box. Explain why or why not.",
-                    answer: "False. No work is done because the force (upward) is perpendicular to the displacement (horizontal). Work requires force in the direction of motion."
+                    answer: "FALSE. No work is done because the force (upward) is perpendicular to the displacement (horizontal). Work requires force in the direction of motion. Since cos(90°) = 0, W = F × d × cos(90°) = 0 J"
                 },
                 500: {
                     question: "A force of 100 N is applied at a 60° angle to move an object 5 meters. Calculate the work done.",
@@ -531,19 +699,19 @@
             "Power": {
                 100: {
                     question: "What is the definition of power?",
-                    answer: "Power is the rate at which work is done or energy is transferred. P = W/t or P = E/t"
+                    answer: "Power is the rate at which work is done or energy is transferred.   P = W ÷ t   OR   P = E ÷ t"
                 },
                 200: {
                     question: "What is the SI unit of power?",
-                    answer: "Watt (W) or Joule per second (J/s)"
+                    answer: "Watt (W) = Joule per second (J/s)"
                 },
                 300: {
                     question: "If 1500 J of work is done in 5 seconds, what is the power?",
-                    answer: "P = W/t = 1500 J / 5 s = 300 W"
+                    answer: "P = W ÷ t = 1500 J ÷ 5 s = 300 W"
                 },
                 400: {
                     question: "A 60 kg student runs up stairs with a vertical height of 4 m in 3 seconds. What is their power output? (g = 10 m/s²)",
-                    answer: "W = mgh = 60 kg × 10 m/s² × 4 m = 2400 J; P = W/t = 2400 J / 3 s = 800 W"
+                    answer: "W = m × g × h = 60 kg × 10 m/s² × 4 m = 2400 J    Then:  P = W ÷ t = 2400 J ÷ 3 s = 800 W"
                 },
                 500: {
                     question: "What is the alternative formula for power in terms of force and velocity?",
@@ -553,51 +721,51 @@
             "Kinetic Energy": {
                 100: {
                     question: "What is the formula for kinetic energy?",
-                    answer: "KE = ½mv² (one-half mass times velocity squared)"
+                    answer: "KE = ½ × m × v²  (one-half times mass times velocity squared)"
                 },
                 200: {
                     question: "A 2 kg ball is moving at 5 m/s. What is its kinetic energy?",
-                    answer: "KE = ½mv² = ½(2 kg)(5 m/s)² = ½(2)(25) = 25 J"
+                    answer: "KE = ½ × m × v² = ½ × 2 kg × (5 m/s)² = ½ × 2 × 25 = 25 J"
                 },
                 300: {
                     question: "If you double the velocity of an object, by what factor does its kinetic energy increase?",
-                    answer: "Kinetic energy increases by a factor of 4 (since KE is proportional to v², doubling v means KE becomes 2² = 4 times larger)"
+                    answer: "Kinetic energy increases by a factor of 4. Since KE is proportional to v², doubling v means KE becomes 2² = 4 times larger."
                 },
                 400: {
                     question: "A 1000 kg car increases its speed from 10 m/s to 20 m/s. What is the change in kinetic energy?",
-                    answer: "KE₁ = ½(1000)(10)² = 50,000 J; KE₂ = ½(1000)(20)² = 200,000 J; ΔKE = 200,000 - 50,000 = 150,000 J or 150 kJ"
+                    answer: "KE₁ = ½ × 1000 × (10)² = 50,000 J    KE₂ = ½ × 1000 × (20)² = 200,000 J    ΔKE = 200,000 − 50,000 = 150,000 J (or 150 kJ)"
                 },
                 500: {
                     question: "State the Work-Energy Theorem and explain what it means.",
-                    answer: "The Work-Energy Theorem states that the net work done on an object equals its change in kinetic energy: W_net = ΔKE. This means all forces doing work on an object will change its kinetic energy."
+                    answer: "The Work-Energy Theorem: W_net = ΔKE = KE_final − KE_initial   This means the net work done on an object equals its change in kinetic energy."
                 }
             },
             "Potential Energy": {
                 100: {
                     question: "What is the formula for gravitational potential energy?",
-                    answer: "PE = mgh (mass times gravitational acceleration times height)"
+                    answer: "PE = m × g × h  (mass times gravitational acceleration times height)"
                 },
                 200: {
                     question: "A 5 kg book is lifted 2 meters above the ground. What is its gravitational potential energy? (Use g = 10 m/s²)",
-                    answer: "PE = mgh = 5 kg × 10 m/s² × 2 m = 100 J"
+                    answer: "PE = m × g × h = 5 kg × 10 m/s² × 2 m = 100 J"
                 },
                 300: {
                     question: "What is the reference point for gravitational potential energy, and why can it be chosen arbitrarily?",
-                    answer: "The reference point (h = 0) can be chosen anywhere because only changes in potential energy matter in physics problems. We typically choose ground level or the lowest point in the problem."
+                    answer: "The reference point (h = 0) can be chosen anywhere because only CHANGES in potential energy matter in physics problems. We typically choose ground level or the lowest point in the problem."
                 },
                 400: {
                     question: "A 10 kg object falls from a height of 20 m. What is its potential energy at the top and bottom? (g = 10 m/s²)",
-                    answer: "At top: PE = mgh = 10 kg × 10 m/s² × 20 m = 2000 J; At bottom (h = 0): PE = 0 J"
+                    answer: "At top: PE = m × g × h = 10 kg × 10 m/s² × 20 m = 2000 J    At bottom (h = 0): PE = 0 J"
                 },
                 500: {
                     question: "What is elastic potential energy, and what is its formula for a spring?",
-                    answer: "Elastic potential energy is energy stored in stretched or compressed springs. Formula: PE_elastic = ½kx² where k is the spring constant and x is the displacement from equilibrium."
+                    answer: "Elastic potential energy is energy stored in stretched or compressed springs.   Formula: PE_elastic = ½ × k × x²  where k is the spring constant and x is the displacement from equilibrium."
                 }
             },
             "Conservation of Energy": {
                 100: {
                     question: "State the Law of Conservation of Energy.",
-                    answer: "Energy cannot be created or destroyed, only transformed from one form to another. The total energy in a closed system remains constant."
+                    answer: "Energy cannot be created or destroyed, only transformed from one form to another. The total energy in a closed system remains constant.   E_initial = E_final"
                 },
                 200: {
                     question: "In a system with no friction, what happens to potential energy as an object falls?",
@@ -605,15 +773,15 @@
                 },
                 300: {
                     question: "A 2 kg ball is dropped from a height of 5 m. What is its velocity just before hitting the ground? (Use g = 10 m/s² and ignore air resistance)",
-                    answer: "PE_initial = KE_final; mgh = ½mv²; gh = ½v²; v = √(2gh) = √(2 × 10 × 5) = √100 = 10 m/s"
+                    answer: "PE_initial = KE_final   →   m × g × h = ½ × m × v²   →   g × h = ½ × v²   →   v = √(2 × g × h) = √(2 × 10 × 5) = √100 = 10 m/s"
                 },
                 400: {
                     question: "A pendulum swings from its highest point (3 m above lowest point) where it has zero velocity. What is its velocity at the lowest point? (g = 10 m/s²)",
-                    answer: "Using conservation of energy: PE_top = KE_bottom; mgh = ½mv²; v = √(2gh) = √(2 × 10 × 3) = √60 ≈ 7.75 m/s"
+                    answer: "Using conservation of energy: PE_top = KE_bottom   →   m × g × h = ½ × m × v²   →   v = √(2 × g × h) = √(2 × 10 × 3) = √60 ≈ 7.75 m/s"
                 },
                 500: {
                     question: "A roller coaster car with mass 500 kg starts from rest at height 40 m. At height 10 m, what is its velocity? (g = 10 m/s², ignore friction)",
-                    answer: "E_initial = E_final; PE₁ = PE₂ + KE₂; mgh₁ = mgh₂ + ½mv²; v = √(2g(h₁-h₂)) = √(2 × 10 × 30) = √600 ≈ 24.5 m/s"
+                    answer: "E_initial = E_final   →   PE₁ = PE₂ + KE₂   →   m × g × h₁ = m × g × h₂ + ½ × m × v²   →   v = √(2 × g × (h₁ − h₂)) = √(2 × 10 × 30) = √600 ≈ 24.5 m/s"
                 }
             }
         };
@@ -875,9 +1043,14 @@
             }
         });
 
-        // Show setup modal on page load
-        document.addEventListener('DOMContentLoaded', () => {
+        function closeStudyGuide() {
+            document.getElementById('studyGuideModal').classList.remove('active');
             document.getElementById('setupModal').classList.add('active');
+        }
+
+        // Show study guide modal on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('studyGuideModal').classList.add('active');
         });
     </script>
 </body>

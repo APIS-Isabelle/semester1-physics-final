@@ -50,7 +50,9 @@ The game includes 25 carefully crafted questions across 5 categories:
 ### Opening the Game
 1. Simply open the `index.html` file in any modern web browser (Chrome, Firefox, Safari, Edge)
 2. No installation or internet connection required!
-3. A setup screen will appear - choose your game mode!
+3. **Study Guide** will appear first with all formulas and concepts
+4. Review the guide, then click "I'm Ready to Play!"
+5. Choose your game mode (Single Player or Team Play)
 
 ### Game Modes
 
@@ -115,10 +117,12 @@ The game covers these essential formulas:
 
 ## 💡 Features
 
+- ✅ **Comprehensive Study Guide**: Built-in reference with all formulas, definitions, and concepts
+- ✅ **Proper Math Notation**: Uses × for multiplication, ÷ for division (no confusing slashes!)
 - ✅ **Dual Game Modes**: Single player and team play (2-6 teams)
 - ✅ **Customizable Teams**: Name your teams and track individual scores
 - ✅ Authentic Jeopardy! styling with blue and gold color scheme
-- ✅ 25 unique physics questions with detailed answers
+- ✅ 25 unique physics questions with detailed step-by-step answers
 - ✅ Interactive scoring system with visual feedback
 - ✅ Responsive design works on desktop and mobile
 - ✅ No internet required after downloading
